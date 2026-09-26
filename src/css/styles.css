@@ -36,7 +36,7 @@ h2 {
     color:white;
 }
 
-.input-area  {
+.input-area input  {
 border: none;
 outline: none;
 border-radius: 22px;
