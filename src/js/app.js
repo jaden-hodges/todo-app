@@ -17,6 +17,17 @@
         const li = document.createElement('li');
         li.textContent = taskText;
 
+        //Create a complete button for each task
+        const completeButton = document.createElement('button')
+        completeButton.textContent =  '';
+        completeButton.className = 'completeButton';
+
+        // Add task complete functionality to the button
+        completeButton.addEventListener('click', () => {
+            li.classList.toggle('completed');    
+            completeButton.classList.toggle('filledCircle');
+        });
+
         // Create a delete button for each task
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'X';
@@ -27,10 +38,11 @@
             taskList.removeChild(li);
         });
 
-        // Append the delete button to the <li>, then the <li> to the <ul>
+        // Prepend complete button to <li>, append the delete button to the <li>, then the <li> to the <ul>
+        li.prepend(completeButton);
         li.appendChild(deleteButton);
         taskList.appendChild(li);
-
+    
         // Clear the input box for the next task
         taskInput.value = "";
     }
