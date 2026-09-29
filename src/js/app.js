@@ -30,7 +30,6 @@
 
         // Create a delete button for each task
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'X';
         deleteButton.className = 'deleteButton';
         
         // Add delete functionality to the button
