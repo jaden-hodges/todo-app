@@ -137,3 +137,10 @@ h2 {
 .filledCircle {
     background: #fff;
 }
+
+.taskCompletionCounter {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 26px;
+}
