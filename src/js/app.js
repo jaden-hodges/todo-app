@@ -2,8 +2,12 @@
     const taskInput = document.getElementById('taskInput');
     const addButton = document.getElementById('addButton');
     const taskList = document.getElementById('taskList');
-
-     // Function to add a task
+    const tasksCompleted = document.getElementById('tasksCompleted');
+    const tasksCreated = document.getElementById('numOfTasks');
+    let numTasksCreated = 0;
+    let numTasksCompleted = 0; 
+    
+    // Function to add a task
     function addTask() {
         const taskText = taskInput.value.trim();
 
@@ -26,6 +30,8 @@
         completeButton.addEventListener('click', () => {
             li.classList.toggle('completed');    
             completeButton.classList.toggle('filledCircle');
+            numTasksCompleted = numTasksCompleted + 1;
+            tasksCompleted.textContent = numTasksCompleted;
         });
 
         // Create a delete button for each task
@@ -35,6 +41,8 @@
         // Add delete functionality to the button
         deleteButton.addEventListener('click', function() {
             taskList.removeChild(li);
+            numTasksCreated = numTasksCreated - 1; 
+            tasksCreated.textContent = numTasksCreated;
         });
 
         // Prepend complete button to <li>, append the delete button to the <li>, then the <li> to the <ul>
@@ -44,8 +52,12 @@
     
         // Clear the input box for the next task
         taskInput.value = "";
+        
+        // Shows number of tasks you created
+        numTasksCreated = numTasksCreated + 1; 
+        tasksCreated.textContent = numTasksCreated; 
     }
-
+    
     // Attach event listeners to trigger the function
     addButton.addEventListener('click', addTask);
 
