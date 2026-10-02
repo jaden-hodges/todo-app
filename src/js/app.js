@@ -30,7 +30,17 @@
         completeButton.addEventListener('click', () => {
             li.classList.toggle('completed');    
             completeButton.classList.toggle('filledCircle');
-            numTasksCompleted = numTasksCompleted + 1;
+            
+            // Move li to bottom if completed
+            if (li.classList.contains('completed')) {
+                taskList.appendChild(li);
+            } else {
+                // If uncompleted, move back to the top of the list
+                taskList.prepend(li);
+            }
+            
+            // Completed tasks count based on current state
+            numTasksCompleted = document.querySelectorAll('.completed').length;
             tasksCompleted.textContent = numTasksCompleted;
         });
 
